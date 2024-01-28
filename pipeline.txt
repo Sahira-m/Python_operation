@@ -1,0 +1,25 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scmGit(branches: [[name: 'main']], extensions: [], userRemoteConfigs: [[credentialsId: 'jenkins-token', url: 'https://github.com/Sahira-m/Python_operation.git']])
+            }
+        }
+        stage('Build') {
+            steps {
+                sh 'python3 arithmaticOps.py'
+                sh 'python3 countOperation.py'
+               
+                }
+        }
+        stage('Test') {
+            steps {
+                sh 'python3 test_arithmaticOps.py'
+                sh 'python3 test_countOperation.py'
+               
+                }
+        }
+    }
+}

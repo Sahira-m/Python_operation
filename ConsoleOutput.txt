@@ -1,0 +1,53 @@
+Started by user Sahira Mandakathingal
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/lib/jenkins/workspace/Python-Build@2
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Checkout)
+[Pipeline] checkout
+The recommended git tool is: NONE
+using credential jenkins-token
+Cloning the remote Git repository
+Cloning repository https://github.com/Sahira-m/Python_operation.git
+ > git init /var/lib/jenkins/workspace/Python-Build@2 # timeout=10
+Fetching upstream changes from https://github.com/Sahira-m/Python_operation.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.34.1'
+using GIT_ASKPASS to set credentials jenkins-token
+ > git fetch --tags --force --progress -- https://github.com/Sahira-m/Python_operation.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/Sahira-m/Python_operation.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+Avoid second fetch
+ > git rev-parse origin/main^{commit} # timeout=10
+Checking out Revision ba011bbfa64696b53268981ea91b821f703e9cc9 (origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f ba011bbfa64696b53268981ea91b821f703e9cc9 # timeout=10
+Commit message: "second function with testing"
+ > git rev-list --no-walk ba011bbfa64696b53268981ea91b821f703e9cc9 # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build)
+[Pipeline] sh
++ python3 arithmaticOps.py
+[Pipeline] sh
++ python3 countOperation.py
+start
+11
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Test)
+[Pipeline] sh
++ python3 test_arithmaticOps.py
+[Pipeline] sh
++ python3 test_countOperation.py
+start
+11
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
