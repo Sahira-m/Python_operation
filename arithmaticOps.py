@@ -9,3 +9,9 @@ def multiply(x,y):
 
 def divide(x,y):
     return x/y
+def modularDivision(x):
+    if(x%2==0):
+        return True
+    else:
+        return False
+    
